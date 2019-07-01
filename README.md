@@ -4,8 +4,10 @@ Bookmark app built using react-create-app.
 
 ### start program
 
+```sh
 cd bookmarks
-npm run start
+npm start
+```
 
 ### Netlify
 
