@@ -2,7 +2,7 @@ import React from 'react';
 
 const Bookmark = props => {
   return (
-    <div class="bookmarks__item card">
+    <div className="bookmarks__item card">
       <p className="bookmarks__title">Name: {props.title} </p>
       <p className="bookmarks__title">Url: {props.link} </p>
       <p className="bookmarks__title">
