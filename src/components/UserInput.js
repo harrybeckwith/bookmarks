@@ -23,18 +23,27 @@ class UserInput extends React.Component {
       <div className="user-input card">
         <form className="user-input__form" onSubmit={this.collectUserInput}>
           <input
+            onChange={this.props.checkInput}
             className="user-input__input"
             placeholder="Bookmark name"
             ref={this.titleRef}
             defaultValue={this.props.currentEdit.title}
           />
           <input
+            type="url"
+            name="url"
+            placeholder="https://example.com"
+            pattern="https://.*"
+            required
             className="user-input__input"
-            placeholder="Bookmark link"
             ref={this.linkRef}
             defaultValue={this.props.currentEdit.link}
           />
-          <button className="button button--positive" type="submit">
+          <button
+            className="button button--positive"
+            type="submit"
+            disabled={this.props.showAdd}
+          >
             Add Bookmark
           </button>
         </form>

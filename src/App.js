@@ -12,6 +12,7 @@ class App extends React.Component {
       link: '',
     },
     editing: false,
+    disableAdd: true,
   };
 
   componentDidMount() {
@@ -82,6 +83,7 @@ class App extends React.Component {
         link: '',
       },
       editing: false,
+      showAdd: true,
     });
   };
 
@@ -108,6 +110,20 @@ class App extends React.Component {
     this.removeBookmark(selected);
   };
 
+  checkInput = e => {
+    const input = e.target.value;
+
+    if (input.length > 0) {
+      this.setState({
+        showAdd: false,
+      });
+    } else {
+      this.setState({
+        showAdd: true,
+      });
+    }
+  };
+
   render() {
     return (
       <div className="container">
@@ -115,6 +131,9 @@ class App extends React.Component {
         <UserInput
           addBookmark={this.addBookmark}
           currentEdit={this.state.currentEdit}
+          bookmarks={this.state.bookmarks}
+          checkInput={this.checkInput}
+          showAdd={this.state.showAdd}
         />
         <div className={this.state.editing ? '' : 'hide'}>
           Currently editing - please complete edit.
