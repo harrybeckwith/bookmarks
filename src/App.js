@@ -105,6 +105,7 @@ class App extends React.Component {
     this.setState({
       currentEdit,
       editing: true,
+      showAdd: true,
     });
     // 3. remove edit clicked
     this.removeBookmark(selected);

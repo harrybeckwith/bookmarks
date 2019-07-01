@@ -6,7 +6,10 @@ const Bookmark = props => {
       <p className="bookmarks__title">Name: {props.title} </p>
       <p className="bookmarks__title bookmarks__url">Url: {props.link} </p>
       <p className="bookmarks__title">
-        Link: <a href={props.link}>{props.title} </a>
+        Link:{' '}
+        <a target="_blank" href={props.link}>
+          {props.title}
+        </a>
       </p>
       <button
         className="bookmarks__button button button--negative button--full-width"

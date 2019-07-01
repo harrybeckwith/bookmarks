@@ -42,7 +42,7 @@ class UserInput extends React.Component {
           />
           <button
             className={`button button--positive ${
-              this.props.showAdd ? 'show' : 'hide'
+              this.props.showAdd ? '' : 'hide'
             }`}
             type="submit"
           >
