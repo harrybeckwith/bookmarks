@@ -1,6 +1,11 @@
 .bookmarks {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
   &__title {
     margin: 0;

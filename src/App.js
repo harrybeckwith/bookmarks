@@ -17,7 +17,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.hydrateStateWithLocalStorage();
-
     // add event listener to save state to localStorage
     // when user leaves/refreshes the page
     window.addEventListener(
@@ -163,12 +162,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-// keep count of number of bookmarks
-// click to show all bookmarks
-// keep add toolbar to add title and link
-
-// 1. create functionality input bar add, edit and remove items.
-// 2. add styles BEM
-// 3. add storage option
-// 4. deploy
