@@ -10,12 +10,23 @@ class App extends React.Component {
 
   addBookmark = bookmark => {
     // create a copy of bookmarks
-    const newBookmarks = [...this.state.bookmarks];
+    const bookmarks = [...this.state.bookmarks];
     // add new bookmark
-    newBookmarks.push(bookmark);
+    bookmarks.push(bookmark);
     // update state with new bookmark
     this.setState({
-      bookmarks: newBookmarks,
+      bookmarks,
+    });
+  };
+
+  removeBookmark = selected => {
+    // create a copy of bookmarks
+    const bookmarks = [...this.state.bookmarks];
+    // remove selected bookmark
+    bookmarks.splice(selected, 1);
+    // update state with removed bookmark
+    this.setState({
+      bookmarks,
     });
   };
 
@@ -28,6 +39,8 @@ class App extends React.Component {
             title={this.state.bookmarks[item].title}
             link={this.state.bookmarks[item].link}
             key={index}
+            index={index}
+            removeBookmark={this.removeBookmark}
           />
         ))}
       </div>
