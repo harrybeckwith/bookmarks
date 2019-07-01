@@ -9,6 +9,7 @@ const Bookmark = props => {
       <div onClick={() => props.removeBookmark(props.index)}>
         Remove bookmark
       </div>
+      <div onClick={() => props.editBookmark(props.index)}>edit</div>
     </div>
   );
 };

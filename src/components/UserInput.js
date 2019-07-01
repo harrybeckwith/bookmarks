@@ -15,14 +15,23 @@ class UserInput extends React.Component {
     };
     // parent func to update state with new bookmark
     this.props.addBookmark(bookmark);
+    event.target.reset();
   };
 
   render() {
     return (
       <div>
         <form onSubmit={this.collectUserInput}>
-          <input placeholder="bookmark name" ref={this.titleRef} />
-          <input placeholder="bookmark link" ref={this.linkRef} />
+          <input
+            placeholder="bookmark name"
+            ref={this.titleRef}
+            defaultValue={this.props.currentEdit.title}
+          />
+          <input
+            placeholder="bookmark link"
+            ref={this.linkRef}
+            defaultValue={this.props.currentEdit.link}
+          />
           <button type="submit">Add Bookmark</button>
         </form>
       </div>

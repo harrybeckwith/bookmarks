@@ -6,6 +6,10 @@ import Bookmark from './components/Bookmark';
 class App extends React.Component {
   state = {
     bookmarks: [],
+    currentEdit: {
+      title: '',
+      link: '',
+    },
   };
 
   addBookmark = bookmark => {
@@ -14,8 +18,13 @@ class App extends React.Component {
     // add new bookmark
     bookmarks.push(bookmark);
     // update state with new bookmark
+    // remove any edited in form
     this.setState({
       bookmarks,
+      currentEdit: {
+        title: '',
+        link: '',
+      },
     });
   };
 
@@ -30,10 +39,24 @@ class App extends React.Component {
     });
   };
 
+  editBookmark = selected => {
+    // 1. get clicked from state
+    const currentEdit = this.state.bookmarks[selected];
+    // 2. add back in to input feilds
+    this.setState({
+      currentEdit,
+    });
+    // 3. remove edit clicked
+    this.removeBookmark(selected);
+  };
+
   render() {
     return (
       <div>
-        <UserInput addBookmark={this.addBookmark} />
+        <UserInput
+          addBookmark={this.addBookmark}
+          currentEdit={this.state.currentEdit}
+        />
         {Object.keys(this.state.bookmarks).map((item, index) => (
           <Bookmark
             title={this.state.bookmarks[item].title}
@@ -41,6 +64,7 @@ class App extends React.Component {
             key={index}
             index={index}
             removeBookmark={this.removeBookmark}
+            editBookmark={this.editBookmark}
           />
         ))}
       </div>
