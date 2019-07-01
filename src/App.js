@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import UserInput from './components/UserInput';
+import Bookmark from './components/Bookmark';
 
 class App extends React.Component {
   state = {
@@ -22,6 +23,7 @@ class App extends React.Component {
     return (
       <div>
         <UserInput addBookmark={this.addBookmark} />
+        <Bookmark />
       </div>
     );
   }
