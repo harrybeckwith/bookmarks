@@ -2,6 +2,7 @@ import React from 'react';
 import './styles/App.scss';
 import UserInput from './components/UserInput';
 import Bookmark from './components/Bookmark';
+import Intro from './components/Intro';
 
 class App extends React.Component {
   state = {
@@ -110,13 +111,17 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
+        <Intro count={this.state.bookmarks.length} />
         <UserInput
           addBookmark={this.addBookmark}
           currentEdit={this.state.currentEdit}
         />
         <div className={this.state.editing ? '' : 'hide'}>
-          current editing - please complete edit.
+          Currently editing - please complete edit.
         </div>
+        <h3 className={this.state.bookmarks.length > 0 ? '' : 'hide'}>
+          Bookmarks
+        </h3>
         <div className={this.state.editing ? 'hide' : 'bookmarks'}>
           {Object.keys(this.state.bookmarks).map((item, index) => (
             <Bookmark
