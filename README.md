@@ -1,69 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Your Bookmarks App
 
-## Available Scripts
+Bookmark app built using react-create-app.
 
-In the project directory, you can run:
+### start program
 
-### `npm start`
+```sh
+npm install
+npm start
+```
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Netlify
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+The application has been deployed using Netlify and can be viewed here:
+https://your-bookmarks.netlify.com
 
-### `npm test`
+### Technical notes
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The application uses three different components:
 
-### `npm run build`
+#### 1. UserInput component
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This takes the input from the user and syncs back up the parent app using refs. The add button creates a new book mark which holds a name and url link. Validation is checked on the url input field to make sure it has a valid url. It uses the form to submit the created data on submit of the add bookmarks button. The button will only display once the user starts typing.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+#### 2. Bookmark component
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This component is the individual card component for each bookmark added by the user. On click of remove the clicked item is removed from the state and the ui updated. Click edit and the card details are placed back into the userInput component for any changes needed - click add bookmark to complete edit.
 
-### `npm run eject`
+#### 3. Intro component
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This component display a welcome message and logo, it also keeps count of the number of bookmarks added.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Local storage
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Local storage is used to capture and store the bookmark details and will stay on the page after refresh and closure of the page.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Styles
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# bookmarks
+BEM used to style each component. Components have their own file. node-sass npm package added so sass can be used. Some color variables stored in variables and global styles in UI file. Each file gets imported into the App.scss.
