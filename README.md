@@ -1,4 +1,4 @@
-# your bookmarks app
+# Your bookmarks app
 
 Bookmark app built using react-create-app.
 
