@@ -38,13 +38,15 @@ class UserInput extends React.Component {
             className="user-input__input"
             ref={this.linkRef}
             defaultValue={this.props.currentEdit.link}
+            onChange={this.props.checkInput}
           />
           <button
-            className="button button--positive"
+            className={`button button--positive ${
+              this.props.showAdd ? 'show' : 'hide'
+            }`}
             type="submit"
-            disabled={this.props.showAdd}
           >
-            Add Bookmark
+            <p>Add Bookmark</p>
           </button>
         </form>
       </div>

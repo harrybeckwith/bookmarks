@@ -12,7 +12,7 @@ class App extends React.Component {
       link: '',
     },
     editing: false,
-    disableAdd: true,
+    showAdd: false,
   };
 
   componentDidMount() {
@@ -83,7 +83,7 @@ class App extends React.Component {
         link: '',
       },
       editing: false,
-      showAdd: true,
+      showAdd: false,
     });
   };
 
@@ -111,15 +111,18 @@ class App extends React.Component {
   };
 
   checkInput = e => {
-    const input = e.target.value;
+    // check if users has typed
+    // if so show the button
+    // else hide
 
+    const input = e.target.value;
     if (input.length > 0) {
       this.setState({
-        showAdd: false,
+        showAdd: true,
       });
     } else {
       this.setState({
-        showAdd: true,
+        showAdd: false,
       });
     }
   };

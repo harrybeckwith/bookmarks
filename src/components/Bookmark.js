@@ -4,7 +4,7 @@ const Bookmark = props => {
   return (
     <div className="bookmarks__item card">
       <p className="bookmarks__title">Name: {props.title} </p>
-      <p className="bookmarks__title">Url: {props.link} </p>
+      <p className="bookmarks__title bookmarks__url">Url: {props.link} </p>
       <p className="bookmarks__title">
         Link: <a href={props.link}>{props.title} </a>
       </p>

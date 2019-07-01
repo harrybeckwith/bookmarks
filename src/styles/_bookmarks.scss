@@ -4,6 +4,13 @@
 
   &__title {
     margin: 0;
+    padding-bottom: 10px;
+  }
+
+  &__url {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow-x: scroll;
   }
 
   &__item {
