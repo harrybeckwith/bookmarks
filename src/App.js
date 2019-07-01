@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import UserInput from './components/UserInput';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    bookmarks: [],
+  };
+
+  addBookmark = bookmark => {
+    // create a copy of bookmarks
+    const newBookmarks = [...this.state.bookmarks];
+    // add new bookmark
+    newBookmarks.push(bookmark);
+    // update state with new bookmark
+    this.setState({
+      bookmarks: newBookmarks,
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <UserInput addBookmark={this.addBookmark} />
+      </div>
+    );
+  }
 }
 
 export default App;
+
+// keep count of number of bookmarks
+// click to show all bookmarks
+// keep add toolbar to add title and link
+
+// 1. create functionality input bar add, edit and remove items.
+// 2. add styles BEM
+// 3. add storage option
+// 4. deploy
