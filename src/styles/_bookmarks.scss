@@ -1,0 +1,19 @@
+.bookmarks {
+  display: flex;
+
+  &__title {
+    margin: 0;
+  }
+
+  &__item {
+    line-height: 2;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 20px;
+  }
+
+  &__button {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+}

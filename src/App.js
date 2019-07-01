@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import './styles/App.scss';
 import UserInput from './components/UserInput';
 import Bookmark from './components/Bookmark';
 
@@ -106,21 +106,23 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="container">
         <UserInput
           addBookmark={this.addBookmark}
           currentEdit={this.state.currentEdit}
         />
-        {Object.keys(this.state.bookmarks).map((item, index) => (
-          <Bookmark
-            title={this.state.bookmarks[item].title}
-            link={this.state.bookmarks[item].link}
-            key={index}
-            index={index}
-            removeBookmark={this.removeBookmark}
-            editBookmark={this.editBookmark}
-          />
-        ))}
+        <div className="bookmarks">
+          {Object.keys(this.state.bookmarks).map((item, index) => (
+            <Bookmark
+              title={this.state.bookmarks[item].title}
+              link={this.state.bookmarks[item].link}
+              key={index}
+              index={index}
+              removeBookmark={this.removeBookmark}
+              editBookmark={this.editBookmark}
+            />
+          ))}
+        </div>
       </div>
     );
   }

@@ -20,19 +20,23 @@ class UserInput extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.collectUserInput}>
+      <div className="user-input card">
+        <form className="user-input__form" onSubmit={this.collectUserInput}>
           <input
-            placeholder="bookmark name"
+            className="user-input__input"
+            placeholder="Bookmark name"
             ref={this.titleRef}
             defaultValue={this.props.currentEdit.title}
           />
           <input
-            placeholder="bookmark link"
+            className="user-input__input"
+            placeholder="Bookmark link"
             ref={this.linkRef}
             defaultValue={this.props.currentEdit.link}
           />
-          <button type="submit">Add Bookmark</button>
+          <button className="button button--positive" type="submit">
+            Add Bookmark
+          </button>
         </form>
       </div>
     );
