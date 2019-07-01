@@ -23,7 +23,13 @@ class App extends React.Component {
     return (
       <div>
         <UserInput addBookmark={this.addBookmark} />
-        <Bookmark />
+        {Object.keys(this.state.bookmarks).map((item, index) => (
+          <Bookmark
+            title={this.state.bookmarks[item].title}
+            link={this.state.bookmarks[item].link}
+            key={index}
+          />
+        ))}
       </div>
     );
   }
